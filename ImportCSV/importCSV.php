@@ -1,5 +1,6 @@
 <?php 
 // Ligne modifiée le 04/01/2016
+// ligne de la branche test
 // ===========================================================================================================================================================
 // MODULE CLASS_IMPORTCSV.INC
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -152,21 +153,21 @@ class ImportCsv
 						$indexEnteteCol=0;               // COMPTEUR DE COLONNES DANS LA STRUCTURE DE MEMORISATION
 						$indexListeCol=0;                // COMPTEUR DE COLONNES DANS LA STRUCTURE DE LA LISTE DES COLONNES A INTEGRER
 						$indexColFilter=0;               // INDEX COURANT DANS LA LISTE DES COLONNES DU FILTRE
-							
+						
 						if(is_null($listeIndexCols))     // TOUTES LES COLONNES SONT INCLUSES
 						{
 							foreach($rowCsv as $Cell)
 							{
-									$this->CSV_Header[$indexEnteteCol]=array( 	"Index" =>$indexCsvCol,
-																				"Colonne"=>utf8_encode($Cell),
-																				"Texte"=>utf8_encode($Cell),
+								$this->CSV_Header[$indexEnteteCol]=array( 	"Index" =>$indexCsvCol,
+									"Colonne"=>utf8_encode($Cell),
+									"Texte"=>utf8_encode($Cell),
 																				"Visible"=>"O", //$cellEntete["Visible"],
 																				"Smartphone"=>"O", //$cellEntete["SmartPhone"],
 																				"IndexCsv"=>$indexCsvCol);    // MEMORISATION DES DONNEES
-									$indexEnteteCol++;							
+								$indexEnteteCol++;							
 									$indexCsvCol++;     // INCREMENTATION DE LA COLONNE COURANTE DANS LA STRUCTURE DES COLONNES DU FICHIER CSV
+								}
 							}
-						}
 						else                             // SEULES LES COLONNES CONTENUES DANS LE TABLEAU $listeIndexCols SERONT RETENUES 
 						{
 							$indexEnteteCol=0;
@@ -178,9 +179,9 @@ class ImportCsv
 									if(utf8_encode($Cell)===$cellEntete["Colonne"]) // LA COLONNE DE LA LISTE DES COLONNES A RETENIR EST MEMORISEE
 									{
 										$this->CSV_Header[$indexEnteteCol]=array( 	"Index" =>$indexCsvCol,
-																					"Colonne"=>utf8_encode($cellEntete["Colonne"]),
-																					"Texte"=>$cellEntete["Texte"],
-																					"Visible"=>$cellEntete["Visible"],
+											"Colonne"=>utf8_encode($cellEntete["Colonne"]),
+											"Texte"=>$cellEntete["Texte"],
+											"Visible"=>$cellEntete["Visible"],
 																					"Smartphone"=>"O", //$cellEntete["SmartPhone"],
 																					"IndexCsv"=>$indexCsvCol);    // MEMORISATION DES DONNEES
 										$indexEnteteCol++;							
@@ -322,7 +323,7 @@ class ImportCsv
 		}
 		return $arrayReturn;
 	}
-			
+	
 	// =================================================================================================================
 	// FONCTION readHeader = RETOURNE LES ENTETES DE COLONNES DANS UN ARRAY		
     // -----------------------------------------------------------------------------------------------------------------
@@ -337,7 +338,7 @@ class ImportCsv
 		}
 		return $arrayReturn;
 	}
-		
+	
 	// =================================================================================================================
 	// FONCTION findColumn : recherche une colonne dans la table.
 	//                       retourne -1 si la valeur n'existe pas et son index si cette dernière existe.
@@ -452,20 +453,20 @@ class ImportCsv
 			switch($TYPE_TRI)
 			{
 				case CSV_SORT_STRING_COL:
-					array_multisort($T_Sort, $ordreTri, CSV_SORT_NUMERIC_COL, $this->CSV_Datas);
-					$bRetour=true;
+				array_multisort($T_Sort, $ordreTri, CSV_SORT_NUMERIC_COL, $this->CSV_Datas);
+				$bRetour=true;
 				break;
 				case CSV_SORT_NUMERIC_COL:
-					array_multisort($T_Sort, $ordreTri, CSV_SORT_NUMERIC_COL, $this->CSV_Datas);
-					$bRetour=true;
+				array_multisort($T_Sort, $ordreTri, CSV_SORT_NUMERIC_COL, $this->CSV_Datas);
+				$bRetour=true;
 				break;
 				case CSV_SORT_LOCAL_STRING_COL:
-					array_multisort($T_Sort, $ordreTri, CSV_SORT_STRING_COL, $this->CSV_Datas);
-					$bRetour=true;
+				array_multisort($T_Sort, $ordreTri, CSV_SORT_STRING_COL, $this->CSV_Datas);
+				$bRetour=true;
 				break;
 				default:
-					array_multisort($T_Sort, $ordreTri, CSV_SORT_STRING_COL, $this->CSV_Datas);
-					$bRetour=true;
+				array_multisort($T_Sort, $ordreTri, CSV_SORT_STRING_COL, $this->CSV_Datas);
+				$bRetour=true;
 				break;					
 			}
 
@@ -558,7 +559,7 @@ class ImportCsv
 	function toJson()
 	{
 		$retour="";
-	
+		
 		$retour= json_encode($this->CSV_Header);
 		return $retour;
 	}
