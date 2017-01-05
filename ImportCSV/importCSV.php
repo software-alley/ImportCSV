@@ -1,6 +1,7 @@
 <?php 
 // Ligne modifiée le 04/01/2016
 // ligne de la branche test
+// Modification ligne 4 10h31
 // ===========================================================================================================================================================
 // MODULE CLASS_IMPORTCSV.INC
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -153,7 +154,7 @@ class ImportCsv
 						$indexEnteteCol=0;               // COMPTEUR DE COLONNES DANS LA STRUCTURE DE MEMORISATION
 						$indexListeCol=0;                // COMPTEUR DE COLONNES DANS LA STRUCTURE DE LA LISTE DES COLONNES A INTEGRER
 						$indexColFilter=0;               // INDEX COURANT DANS LA LISTE DES COLONNES DU FILTRE
-						
+
 						if(is_null($listeIndexCols))     // TOUTES LES COLONNES SONT INCLUSES
 						{
 							foreach($rowCsv as $Cell)
@@ -323,7 +324,7 @@ class ImportCsv
 		}
 		return $arrayReturn;
 	}
-	
+
 	// =================================================================================================================
 	// FONCTION readHeader = RETOURNE LES ENTETES DE COLONNES DANS UN ARRAY		
     // -----------------------------------------------------------------------------------------------------------------
@@ -338,7 +339,7 @@ class ImportCsv
 		}
 		return $arrayReturn;
 	}
-	
+
 	// =================================================================================================================
 	// FONCTION findColumn : recherche une colonne dans la table.
 	//                       retourne -1 si la valeur n'existe pas et son index si cette dernière existe.
@@ -559,7 +560,7 @@ class ImportCsv
 	function toJson()
 	{
 		$retour="";
-		
+
 		$retour= json_encode($this->CSV_Header);
 		return $retour;
 	}
